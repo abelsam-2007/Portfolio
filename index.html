@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Abel Sam Philip - AI Engineer, Data Science Student, and Backend Developer. Building intelligent, high-impact digital experiences.">
+  <title>Abel Sam Philip | AI Engineer & Backend Developer Portfolio</title>
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#050505',
+              darker: '#020202',
+              card: '#0f0f0f',
+              cardBorder: '#1c1c1e',
+              red: '#E50914',
+              'red-glow': 'rgba(229, 9, 20, 0.15)',
+              gray: '#1A1A1A',
+              lightGray: '#2c2c2e',
+              textMuted: '#8e8e93'
+            }
+          },
+          fontFamily: {
+            display: ['Syne', 'sans-serif'],
+            sans: ['Inter', 'sans-serif'],
+            mono: ['Space Grotesk', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- GSAP & ScrollTrigger CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body class="bg-brand-dark text-white font-sans overflow-x-hidden relative selection:bg-brand-red selection:text-white">
+
+  <!-- Background Effects -->
+  <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+    <!-- Moving Light blobs -->
+    <div id="glow-blob-1" class="absolute w-[500px] h-[500px] rounded-full bg-brand-red opacity-[0.03] blur-[120px] -top-40 -left-40 transition-transform duration-[10000ms] ease-in-out"></div>
+    <div id="glow-blob-2" class="absolute w-[600px] h-[600px] rounded-full bg-brand-red opacity-[0.025] blur-[150px] top-1/2 -right-40 transition-transform duration-[15000ms] ease-in-out"></div>
+    <div id="glow-blob-3" class="absolute w-[400px] h-[400px] rounded-full bg-brand-red opacity-[0.02] blur-[100px] bottom-10 left-1/3 transition-transform duration-[12000ms] ease-in-out"></div>
+    
+    <!-- Cyber Grid Overlay -->
+    <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.007)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.007)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-80"></div>
+    
+    <!-- Grain Noise Texture Overlay -->
+    <div class="absolute inset-0 opacity-[0.02] bg-noise pointer-events-none"></div>
+    
+    <!-- Mouse Glow Effect -->
+    <div id="mouse-glow" class="absolute w-[350px] h-[350px] rounded-full bg-brand-red opacity-0 blur-[100px] pointer-events-none transition-opacity duration-500"></div>
+  </div>
+
+  <!-- Custom Scroll Progress Bar -->
+  <div class="fixed top-0 left-0 h-[3px] bg-brand-red z-50 transition-all duration-75" id="scroll-progress" style="width: 0%;"></div>
+
+  <!-- Header / Navigation -->
+  <header class="fixed top-0 left-0 w-full z-40 bg-brand-dark/60 backdrop-blur-xl border-b border-white/5 transition-all duration-300" id="main-header">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="#" class="font-display font-extrabold text-xl tracking-tight text-white hover:opacity-80 transition-opacity flex items-center gap-1.5">
+        ABEL SAM PHILIP<span class="inline-block w-2 h-2 rounded-full bg-brand-red animate-pulse"></span>
+      </a>
+      
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-brand-textMuted">
+        <a href="#about" class="hover:text-white transition-colors py-2 relative group">
+          About
+          <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-brand-red transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="#experience" class="hover:text-white transition-colors py-2 relative group">
+          Experience
+          <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-brand-red transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="#skills" class="hover:text-white transition-colors py-2 relative group">
+          Skills
+          <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-brand-red transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="#projects" class="hover:text-white transition-colors py-2 relative group">
+          Projects
+          <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-brand-red transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="#achievements" class="hover:text-white transition-colors py-2 relative group">
+          Achievements
+          <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-brand-red transition-all duration-300 group-hover:w-full"></span>
+        </a>
+      </nav>
+      
+      <!-- CTA and Menu Button -->
+      <div class="flex items-center gap-4">
+        <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-5  h-10 text-xs font-semibold uppercase tracking-wider text-white border border-white/10 hover:border-brand-red hover:bg-brand-red/10 transition-all rounded duration-300 magnetic-button">
+          Let's Connect
+        </a>
+        <button id="menu-btn" class="md:hidden text-white hover:text-brand-red transition-colors focus:outline-none" aria-label="Toggle Menu">
+          <i class="fa-solid fa-bars-staggered text-xl"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-brand-dark/95 backdrop-blur-2xl border-b border-white/5 py-8 px-6 flex flex-col gap-6 text-lg font-medium text-brand-textMuted transition-all duration-300">
+      <a href="#about" class="hover:text-white transition-colors py-1">About Me</a>
+      <a href="#experience" class="hover:text-white transition-colors py-1">Experience</a>
+      <a href="#skills" class="hover:text-white transition-colors py-1">Skills</a>
+      <a href="#projects" class="hover:text-white transition-colors py-1">Featured Projects</a>
+      <a href="#achievements" class="hover:text-white transition-colors py-1">Achievements</a>
+      <a href="#contact" class="inline-flex items-center justify-center h-12 text-sm font-semibold uppercase tracking-wider text-white bg-brand-red hover:bg-brand-red-hover transition-colors rounded">
+        Contact Me
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="relative z-10 max-w-7xl mx-auto px-6 pt-20">
+
+    <!-- HERO SECTION -->
+    <section class="min-h-[calc(100vh-80px)] flex flex-col justify-center py-12 md:py-24 relative overflow-hidden" id="hero">
+      
+      <!-- Dramatic Background Text (Awwwards style) -->
+      <div class="absolute inset-0 -z-10 flex flex-col justify-center pointer-events-none select-none opacity-[0.02] md:opacity-[0.03]">
+        <div class="font-display font-extrabold text-[12vw] leading-none text-white tracking-tighter uppercase">PORTFOLIO</div>
+        <div class="font-display font-extrabold text-[12vw] leading-none text-white tracking-tighter uppercase self-end">CREATIVE</div>
+        <div class="font-display font-extrabold text-[12vw] leading-none text-transparent stroke-text tracking-tighter uppercase">AI ENGINEER</div>
+      </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Hero Content (Left 7 Columns) -->
+        <div class="lg:col-span-7 flex flex-col gap-6 z-10">
+          <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/10 rounded-full w-fit backdrop-blur-md">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-red animate-ping"></span>
+            <span class="text-[10px] font-semibold tracking-widest uppercase text-brand-textMuted">Available for Internships & Projects</span>
+          </div>
+          
+          <h1 class="flex flex-col text-left">
+            <span class="text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-brand-red mb-2 block">Hello, I'm</span>
+            <span class="font-display font-extrabold text-5xl md:text-8xl tracking-tight text-white leading-[0.9] uppercase">
+              Abel
+            </span>
+            <span class="font-display font-extrabold text-4xl md:text-7xl tracking-tight text-transparent stroke-text leading-[0.9] uppercase mt-1">
+              Sam Philip
+            </span>
+          </h1>
+          
+          <!-- Dynamic Changing Text Animation -->
+          <div class="h-10 overflow-hidden flex items-center mt-2">
+            <span class="text-lg md:text-2xl font-mono font-semibold text-brand-red flex items-center gap-2">
+              <span id="role-rotator" class="border-r-2 border-brand-red pr-1 min-h-[30px]">AI Engineer</span>
+            </span>
+          </div>
+
+          <p class="text-brand-textMuted text-base md:text-lg max-w-xl font-light leading-relaxed border-l border-brand-red/30 pl-4 mt-2">
+            "Building intelligent software, solving real-world problems with AI, and designing technology that creates meaningful impact."
+          </p>
+          
+          <!-- Premium Animated CTA Button Grid -->
+          <div class="flex flex-wrap gap-4 mt-6">
+            <a href="#projects" class="inline-flex items-center justify-center px-8 h-14 bg-brand-red hover:bg-brand-red-hover text-white font-semibold rounded text-sm uppercase tracking-wider transition-all duration-300 shadow-[0_0_20px_rgba(229,9,20,0.3)] hover:shadow-[0_0_35px_rgba(229,9,20,0.6)] magnetic-button">
+              View Projects
+              <i class="fa-solid fa-arrow-right-long ml-2 text-xs transition-transform duration-300 group-hover:translate-x-1.5"></i>
+            </a>
+            
+            <a href="#contact" class="inline-flex items-center justify-center px-8 h-14 bg-transparent border border-white/20 hover:border-brand-red hover:bg-brand-red/5 text-white font-semibold rounded text-sm uppercase tracking-wider transition-all duration-300 magnetic-button">
+              Contact Me
+            </a>
+            
+            <a href="https://github.com/abelsam-2007" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-14 h-14 bg-brand-card/80 border border-brand-cardBorder rounded hover:border-brand-red hover:text-brand-red transition-all duration-300 magnetic-button" title="GitHub">
+              <i class="fa-brands fa-github text-xl"></i>
+            </a>
+            
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-14 h-14 bg-brand-card/80 border border-brand-cardBorder rounded hover:border-brand-red hover:text-brand-red transition-all duration-300 magnetic-button" title="LinkedIn">
+              <i class="fa-brands fa-linkedin-in text-xl"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Hero Portrait Image & Overlapping Letters (Right 5 Columns) -->
+        <div class="lg:col-span-5 relative flex items-center justify-center lg:justify-end mt-8 lg:mt-0 z-10">
+          <div class="relative w-72 h-96 md:w-80 md:h-[450px] group">
+            <!-- Neon Accent Glow Borders behind portrait -->
+            <div class="absolute -inset-4 bg-gradient-to-tr from-brand-red/30 to-transparent rounded-2xl blur-2xl group-hover:scale-105 transition-transform duration-700"></div>
+            
+            <!-- Graphic Geometric Frame -->
+            <div class="absolute inset-0 border border-white/10 rounded-2xl z-20 group-hover:border-brand-red/30 transition-colors duration-500"></div>
+            <div class="absolute -top-3 -left-3 w-6 h-6 border-t-2 border-l-2 border-brand-red z-20"></div>
+            <div class="absolute -bottom-3 -right-3 w-6 h-6 border-b-2 border-r-2 border-brand-red z-20"></div>
+            
+            <!-- Floating Decorative Info Tag -->
+            <div class="absolute -right-8 top-16 bg-brand-card/90 border border-brand-cardBorder backdrop-blur-xl px-4 py-3 rounded-lg z-30 shadow-2xl animate-bounce" style="animation-duration: 4s;">
+              <div class="flex items-center gap-3">
+                <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                <div class="text-left">
+                  <p class="text-[9px] text-brand-textMuted uppercase tracking-widest font-semibold">Active Internship</p>
+                  <p class="text-xs font-bold">FlyRank AI Intern</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- The Main Portrait with Glow mask -->
+            <div class="w-full h-full rounded-2xl overflow-hidden relative bg-brand-card border border-white/5 shadow-2xl">
+              <!-- Overlay filter to blend into black/red design -->
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/20 to-transparent z-10 opacity-60 mix-blend-multiply"></div>
+              <div class="absolute inset-0 bg-brand-red/10 mix-blend-overlay z-10 opacity-30"></div>
+              
+              <!-- Image element -->
+              <img src="assets/images/portrait.jpg" alt="Abel Sam Philip Portrait" class="w-full h-full object-cover grayscale brightness-95 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700">
+            </div>
+            
+            <!-- Dynamic vertical typography beside frame -->
+            <div class="absolute -left-12 bottom-6 z-30 rotate-180 select-none font-mono text-[10px] tracking-[0.4em] uppercase text-white/20 [writing-mode:vertical-lr]">
+              AI & DATA SCIENCE
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HERO STATISTICS SECTION -->
+    <section class="py-12 border-t border-b border-white/5 relative overflow-hidden" id="stats">
+      <!-- Ambient Backlight -->
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[100px] bg-brand-red/5 rounded-full blur-[80px] pointer-events-none"></div>
+      
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 relative z-10">
+        <!-- Stat Card 1 -->
+        <div class="bg-brand-card/30 border border-brand-cardBorder/40 hover:border-brand-red/30 backdrop-blur-md px-6 py-8 rounded-xl text-center transition-all duration-300 hover:-translate-y-1 group">
+          <p class="text-xs text-brand-textMuted font-mono uppercase tracking-widest mb-2 group-hover:text-brand-red transition-colors">Experience</p>
+          <div class="font-display font-extrabold text-2xl md:text-3xl tracking-tight mb-1 text-white">Intern</div>
+          <p class="text-[10px] text-brand-textMuted leading-tight">Backend AI Engineer<br>@ FlyRank AI</p>
+        </div>
+        <!-- Stat Card 2 -->
+        <div class="bg-brand-card/30 border border-brand-cardBorder/40 hover:border-brand-red/30 backdrop-blur-md px-6 py-8 rounded-xl text-center transition-all duration-300 hover:-translate-y-1 group">
+          <p class="text-xs text-brand-textMuted font-mono uppercase tracking-widest mb-2 group-hover:text-brand-red transition-colors">Awards</p>
+          <div class="font-display font-extrabold text-2xl md:text-3xl tracking-tight mb-1 text-white flex justify-center items-baseline gap-0.5">
+            <span class="stat-counter" data-target="2">0</span><span>X</span>
+          </div>
+          <p class="text-[10px] text-brand-textMuted leading-tight">Director's Honours<br>Academic Awards</p>
+        </div>
+        <!-- Stat Card 3 -->
+        <div class="bg-brand-card/30 border border-brand-cardBorder/40 hover:border-brand-red/30 backdrop-blur-md px-6 py-8 rounded-xl text-center transition-all duration-300 hover:-translate-y-1 group">
+          <p class="text-xs text-brand-textMuted font-mono uppercase tracking-widest mb-2 group-hover:text-brand-red transition-colors">National</p>
+          <div class="font-display font-extrabold text-xl md:text-2xl tracking-tight mb-1 text-white uppercase leading-none py-1">SIH 2025</div>
+          <p class="text-[10px] text-brand-textMuted leading-tight">Smart India Hackathon<br>Shortlisted Candidate</p>
+        </div>
+        <!-- Stat Card 4 -->
+        <div class="bg-brand-card/30 border border-brand-cardBorder/40 hover:border-brand-red/30 backdrop-blur-md px-6 py-8 rounded-xl text-center transition-all duration-300 hover:-translate-y-1 group">
+          <p class="text-xs text-brand-textMuted font-mono uppercase tracking-widest mb-2 group-hover:text-brand-red transition-colors">Builds</p>
+          <div class="font-display font-extrabold text-2xl md:text-3xl tracking-tight mb-1 text-white flex justify-center items-baseline gap-0.5">
+            <span class="stat-counter" data-target="10">0</span><span>+</span>
+          </div>
+          <p class="text-[10px] text-brand-textMuted leading-tight">Software Projects<br>Developed</p>
+        </div>
+        <!-- Stat Card 5 -->
+        <div class="bg-brand-card/30 border border-brand-cardBorder/40 hover:border-brand-red/30 backdrop-blur-md px-6 py-8 rounded-xl text-center transition-all duration-300 hover:-translate-y-1 group">
+          <p class="text-xs text-brand-textMuted font-mono uppercase tracking-widest mb-2 group-hover:text-brand-red transition-colors">Tech</p>
+          <div class="font-display font-extrabold text-2xl md:text-3xl tracking-tight mb-1 text-white flex justify-center items-baseline gap-0.5">
+            <span class="stat-counter" data-target="20">0</span><span>+</span>
+          </div>
+          <p class="text-[10px] text-brand-textMuted leading-tight">Languages, Frameworks<br>& Cloud Tools</p>
+        </div>
+        <!-- Stat Card 6 -->
+        <div class="bg-brand-card/30 border border-brand-cardBorder/40 hover:border-brand-red/30 backdrop-blur-md px-6 py-8 rounded-xl text-center transition-all duration-300 hover:-translate-y-1 group">
+          <p class="text-xs text-brand-textMuted font-mono uppercase tracking-widest mb-2 group-hover:text-brand-red transition-colors">Algorithms</p>
+          <div class="font-display font-extrabold text-2xl md:text-3xl tracking-tight mb-1 text-white flex justify-center items-baseline gap-0.5">
+            <span class="stat-counter" data-target="1000">0</span><span>+</span>
+          </div>
+          <p class="text-[10px] text-brand-textMuted leading-tight">Coding Challenges<br>Solved</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="py-20 md:py-32 relative scroll-mt-20" id="about">
+      <div class="absolute -right-40 top-1/3 w-[500px] h-[500px] bg-brand-red opacity-[0.015] blur-[150px] pointer-events-none"></div>
+      
+      <div class="flex flex-col gap-16">
+        <!-- Editorial Section Title -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-white/5 pb-8">
+          <div>
+            <span class="text-xs md:text-sm font-mono uppercase tracking-[0.2em] text-brand-red">01 // Discover</span>
+            <h2 class="font-display font-extrabold text-3xl md:text-6xl tracking-tight text-white uppercase mt-2">About Me</h2>
+          </div>
+          <p class="text-brand-textMuted text-sm font-mono mt-4 md:mt-0 uppercase tracking-widest">[ AI & DATA SCIENCE STUDENT ]</p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+          
+          <!-- Animated Quality Cards Grid (Left 6 Columns) -->
+          <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Card 1: AI Development -->
+            <div class="bg-brand-card border border-brand-cardBorder hover:border-brand-red/20 p-6 rounded-xl relative overflow-hidden group transition-all duration-300">
+              <div class="absolute top-0 right-0 w-24 h-24 bg-brand-red opacity-[0.02] group-hover:opacity-[0.06] rounded-bl-full transition-opacity duration-300"></div>
+              <div class="w-10 h-10 rounded-lg bg-brand-red/10 border border-brand-red/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <i class="fa-solid fa-brain text-brand-red text-sm"></i>
+              </div>
+              <h3 class="text-base font-semibold mb-2">AI Development</h3>
+              <p class="text-xs text-brand-textMuted leading-relaxed">Designing machine learning models, deploying computer vision APIs, and orchestrating LLM prompt architectures.</p>
+            </div>
+            
+            <!-- Card 2: Backend Engineering -->
+            <div class="bg-brand-card border border-brand-cardBorder hover:border-brand-red/20 p-6 rounded-xl relative overflow-hidden group transition-all duration-300">
+              <div class="absolute top-0 right-0 w-24 h-24 bg-brand-red opacity-[0.02] group-hover:opacity-[0.06] rounded-bl-full transition-opacity duration-300"></div>
+              <div class="w-10 h-10 rounded-lg bg-brand-red/10 border border-brand-red/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <i class="fa-solid fa-server text-brand-red text-sm"></i>
+              </div>
+              <h3 class="text-base font-semibold mb-2">Backend Engineering</h3>
+              <p class="text-xs text-brand-textMuted leading-relaxed">Architecting robust Express.js / Node APIs, managing PostgreSQL / MongoDB, and optimizing microservices.</p>
+            </div>
+            
+            <!-- Card 3: Strategic Leadership -->
+            <div class="bg-brand-card border border-brand-cardBorder hover:border-brand-red/20 p-6 rounded-xl relative overflow-hidden group transition-all duration-300">
+              <div class="absolute top-0 right-0 w-24 h-24 bg-brand-red opacity-[0.02] group-hover:opacity-[0.06] rounded-bl-full transition-opacity duration-300"></div>
+              <div class="w-10 h-10 rounded-lg bg-brand-red/10 border border-brand-red/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <i class="fa-solid fa-people-group text-brand-red text-sm"></i>
+              </div>
+              <h3 class="text-base font-semibold mb-2">Leadership & Strategy</h3>
+              <p class="text-xs text-brand-textMuted leading-relaxed">Guiding hackathon cohorts, coordinating software sprints, and mapping technical scopes for business targets.</p>
+            </div>
+
+            <!-- Card 4: Public Oratory -->
+            <div class="bg-brand-card border border-brand-cardBorder hover:border-brand-red/20 p-6 rounded-xl relative overflow-hidden group transition-all duration-300">
+              <div class="absolute top-0 right-0 w-24 h-24 bg-brand-red opacity-[0.02] group-hover:opacity-[0.06] rounded-bl-full transition-opacity duration-300"></div>
+              <div class="w-10 h-10 rounded-lg bg-brand-red/10 border border-brand-red/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <i class="fa-solid fa-microphone text-brand-red text-sm"></i>
+              </div>
+              <h3 class="text-base font-semibold mb-2">Professional Oratory</h3>
+              <p class="text-xs text-brand-textMuted leading-relaxed">Presenting product concepts with conviction, pitching engineering plans, and managing tech lectures.</p>
+            </div>
+
+            <!-- Card 5: Problem Solving -->
+            <div class="bg-brand-card border border-brand-cardBorder hover:border-brand-red/20 p-6 rounded-xl relative overflow-hidden group transition-all duration-300">
+              <div class="absolute top-0 right-0 w-24 h-24 bg-brand-red opacity-[0.02] group-hover:opacity-[0.06] rounded-bl-full transition-opacity duration-300"></div>
+              <div class="w-10 h-10 rounded-lg bg-brand-red/10 border border-brand-red/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <i class="fa-solid fa-cubes text-brand-red text-sm"></i>
+              </div>
+              <h3 class="text-base font-semibold mb-2">Problem Solving</h3>
+              <p class="text-xs text-brand-textMuted leading-relaxed">Solving complex mathematical structures, parsing system performance blocks, and writing clean data flows.</p>
+            </div>
+
+            <!-- Card 6: Continuous Learning -->
+            <div class="bg-brand-card border border-brand-cardBorder hover:border-brand-red/20 p-6 rounded-xl relative overflow-hidden group transition-all duration-300">
+              <div class="absolute top-0 right-0 w-24 h-24 bg-brand-red opacity-[0.02] group-hover:opacity-[0.06] rounded-bl-full transition-opacity duration-300"></div>
+              <div class="w-10 h-10 rounded-lg bg-brand-red/10 border border-brand-red/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <i class="fa-solid fa-graduation-cap text-brand-red text-sm"></i>
+              </div>
+              <h3 class="text-base font-semibold mb-2">Continuous Learning</h3>
+              <p class="text-xs text-brand-textMuted leading-relaxed">Consistently studying state-of-the-art ML papers, database design methodologies, and cloud architectures.</p>
+            </div>
+          </div>
+          
+          <!-- Editorial Text Copy (Right 6 Columns) -->
+          <div class="lg:col-span-6 flex flex-col gap-6 text-brand-textMuted font-light leading-relaxed text-base md:text-lg">
+            <p>
+              💻 I am an <strong class="text-white font-semibold">Artificial Intelligence & Data Science Undergraduate</strong> student at Amal Jyothi College of Engineering. With an insatiable appetite for building intelligent software architectures, I explore the intersections of machine learning, system engineering, and elegant front-end design.
+            </p>
+            <p>
+              Currently, I work as a <strong class="text-white font-semibold">Backend AI Engineer Intern</strong> at <strong class="text-brand-red font-semibold">FlyRank AI</strong>. In this capacity, I develop scalable, secure APIs and engineer intelligent automation features, integrating core cognitive pipelines directly into high-traffic business application hubs.
+            </p>
+            <p>
+              I thrive on engineering solutions for real-world pain points—whether that involves designing a live transportation tracking application or analyzing huge telemetry streams to extract predictive insights.
+            </p>
+            <p>
+              Beyond technical tasks, I am deeply committed to strategic leadership, persuasive presentations, and mentoring teams. I believe that technology should always solve meaningful problems while offering exceptional, delightful user experiences.
+            </p>
+            
+            <div class="mt-4 p-6 bg-brand-card border border-brand-cardBorder rounded-xl flex items-center gap-4 group hover:border-brand-red/20 transition-all duration-300">
+              <i class="fa-solid fa-quote-left text-brand-red text-3xl opacity-40 self-start mt-1"></i>
+              <div>
+                <p class="text-white italic text-sm font-light">"Good engineering isn't just about writing code; it's about translating complex mathematical models into business-critical reality with absolute security and reliability."</p>
+                <p class="text-xs text-brand-red font-mono uppercase mt-2 tracking-widest">— Abel Sam Philip</p>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section class="py-20 md:py-32 scroll-mt-20 border-t border-white/5 relative" id="experience">
+      <div class="absolute -left-40 top-1/2 w-[500px] h-[500px] bg-brand-red opacity-[0.015] blur-[150px] pointer-events-none"></div>
+      
+      <div class="flex flex-col gap-16">
+        <!-- Section Title -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-white/5 pb-8">
+          <div>
+            <span class="text-xs md:text-sm font-mono uppercase tracking-[0.2em] text-brand-red">02 // Experience</span>
+            <h2 class="font-display font-extrabold text-3xl md:text-6xl tracking-tight text-white uppercase mt-2">Work History</h2>
+          </div>
+          <p class="text-brand-textMuted text-sm font-mono mt-4 md:mt-0 uppercase tracking-widest">[ TIMELINE OF IMPACT ]</p>
+        </div>
+        
+        <!-- Premium Vertical Timeline -->
+        <div class="relative pl-6 md:pl-32 before:absolute before:left-[11px] md:before:left-[31px] before:top-2 before:bottom-2 before:w-[2px] before:bg-brand-cardBorder">
+          
+          <!-- Experience Item 1 -->
+          <div class="relative timeline-item mb-16 last:mb-0">
+            <!-- Glowing Timeline Node -->
+            <div class="absolute -left-[20px] md:-left-[106px] top-1.5 w-6 h-6 rounded-full bg-brand-dark border-2 border-brand-red flex items-center justify-center z-10 shadow-[0_0_10px_rgba(229,9,20,0.5)]">
+              <span class="w-2.5 h-2.5 rounded-full bg-brand-red"></span>
+            </div>
+            
+            <!-- Date Tag for Desktop (Positioned absolutely on left) -->
+            <div class="hidden md:block absolute -left-[240px] top-1.5 w-[110px] text-right font-mono text-sm tracking-widest text-brand-textMuted uppercase">
+              Current
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 bg-brand-card border border-brand-cardBorder p-8 rounded-2xl relative overflow-hidden group hover:border-brand-red/20 transition-all duration-300">
+              
+              <!-- Subtle red backdrop gradient -->
+              <div class="absolute inset-0 bg-gradient-to-r from-brand-red/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <!-- Content (Left Column - Job Info) -->
+              <div class="lg:col-span-5 relative z-10 flex flex-col gap-2">
+                <span class="md:hidden font-mono text-xs tracking-widest text-brand-red uppercase">Current</span>
+                <h3 class="font-display font-extrabold text-xl md:text-2xl text-white">Backend AI Engineer Intern</h3>
+                <h4 class="text-brand-red font-semibold text-sm">FlyRank AI</h4>
+                <p class="text-xs text-brand-textMuted mt-2 flex items-center gap-1.5">
+                  <i class="fa-solid fa-location-dot"></i> Remote / Hybrid
+                </p>
+                <div class="flex flex-wrap gap-2 mt-4">
+                  <span class="px-2.5 py-1 bg-white/5 border border-white/5 text-[10px] font-semibold text-white rounded font-mono">Node.js</span>
+                  <span class="px-2.5 py-1 bg-white/5 border border-white/5 text-[10px] font-semibold text-white rounded font-mono">Express</span>
+                  <span class="px-2.5 py-1 bg-white/5 border border-white/5 text-[10px] font-semibold text-white rounded font-mono">PostgreSQL</span>
+                  <span class="px-2.5 py-1 bg-white/5 border border-white/5 text-[10px] font-semibold text-white rounded font-mono">REST APIs</span>
+                </div>
+              </div>
+              
+              <!-- Content (Right Column - Responsibilities) -->
+              <div class="lg:col-span-7 relative z-10 flex flex-col gap-4 text-brand-textMuted text-sm font-light">
+                <p class="text-white font-medium">Core Responsibilities & Technical Work:</p>
+                <ul class="flex flex-col gap-3">
+                  <li class="flex gap-3">
+                    <span class="text-brand-red mt-1"><i class="fa-solid fa-angle-right text-[10px]"></i></span>
+                    <p><strong class="text-white font-semibold">AI-Powered Systems:</strong> Architecting and implementing cognitive intelligence backend microservices to extract structure from unorganized data.</p>
+                  </li>
+                  <li class="flex gap-3">
+                    <span class="text-brand-red mt-1"><i class="fa-solid fa-angle-right text-[10px]"></i></span>
+                    <p><strong class="text-white font-semibold">API Development:</strong> Designing and deploying robust REST API schemas, optimized for security, performance, and cross-platform mobile bindings.</p>
+                  </li>
+                  <li class="flex gap-3">
+                    <span class="text-brand-red mt-1"><i class="fa-solid fa-angle-right text-[10px]"></i></span>
+                    <p><strong class="text-white font-semibold">Database Optimization:</strong> Tuning relational query maps and transactional indices inside PostgreSQL to lower latencies on concurrent datasets.</p>
+                  </li>
+                  <li class="flex gap-3">
+                    <span class="text-brand-red mt-1"><i class="fa-solid fa-angle-right text-[10px]"></i></span>
+                    <p><strong class="text-white font-semibold">Intelligent Automation:</strong> Developing automated server pipelines, task hooks, and batch schedules to handle heavy server calculations offline.</p>
+                  </li>
+                </ul>
+              </div>
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section class="py-20 md:py-32 scroll-mt-20 border-t border-white/5 relative" id="skills">
+      <div class="absolute -right-40 top-1/2 w-[500px] h-[500px] bg-brand-red opacity-[0.015] blur-[150px] pointer-events-none"></div>
+      
+      <div class="flex flex-col gap-16">
+        <!-- Section Title -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-white/5 pb-8">
+          <div>
+            <span class="text-xs md:text-sm font-mono uppercase tracking-[0.2em] text-brand-red">03 // Capabilities</span>
+            <h2 class="font-display font-extrabold text-3xl md:text-6xl tracking-tight text-white uppercase mt-2">Technical Skills</h2>
+          </div>
+          <p class="text-brand-textMuted text-sm font-mono mt-4 md:mt-0 uppercase tracking-widest">[ SKILLS MATRIX ]</p>
+        </div>
+        
+        <!-- Premium Skills Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Category 1: Languages & Logic -->
+          <div class="bg-brand-card border border-brand-cardBorder p-8 rounded-2xl relative overflow-hidden group hover:border-brand-red/25 transition-all duration-300">
+            <h3 class="font-display font-bold text-lg mb-6 flex items-center gap-3">
+              <i class="fa-solid fa-code text-brand-red"></i>
+              Programming
+            </h3>
+            
+            <div class="flex flex-col gap-4">
+              <!-- Skill Item -->
+              <div>
+                <div class="flex justify-between text-xs font-semibold mb-1">
+                  <span>Python</span>
+                  <span class="text-brand-red font-mono">90%</span>
+                </div>
+                <div class="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                  <div class="h-full bg-brand-red progress-bar" data-width="90%" style="width: 0%;"></div>
+                </div>
+              </div>
+              
+              <!-- Skill Item -->
+              <div>
+                <div class="flex justify-between text-xs font-semibold mb-1">
+                  <span>Java</span>
+                  <span class="text-brand-red font-mono">80%</span>
+                </div>
+                <div class="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                  <div class="h-full bg-brand-red progress-bar" data-width="80%" style="width: 0%;"></div>
+                </div>
+              </div>
+              
+              <!-- Skill Item -->
+              <div>
+                <div class="flex justify-between text-xs font-semibold mb-1">
+                  <span>JavaScript / TypeScript</span>
+                  <span class="text-brand-red font-mono">85%</span>
+                </div>
+                <div class="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                  <div class="h-full bg-brand-red progress-bar" data-width="85%" style="width: 0%;"></div>
+                </div>
+              </div>
+              
+              <!-- Skill Item -->
+              <div>
+                <div class="flex justify-between text-xs font-semibold mb-1">
+                  <span>C / C++</span>
+                  <span class="text-brand-red font-mono">75%</span>
+                </div>
+                <div class="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                  <div class="h-full bg-brand-red progress-bar" data-width="75%" style="width: 0%;"></div>
+                </div>
+              </div>
+              
+              <!-- Skill Item -->
+              <div>
+                <div class="flex justify-between text-xs font-semibold mb-1">
+                  <span>Flutter</span>
+                  <span class="text-brand-red font-mono">80%</span>
+                </div>
+                <div class="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                  <div class="h-full bg-brand-red progress-bar" data-width="80%" style="width: 0%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Category 2: Backend Architecture -->
+          <div class="bg-brand-card border border-brand-cardBorder p-8 rounded-2xl relative overflow-hidden group hover:border-brand-red/25 transition-all duration-300">
+            <h3 class="font-display font-bold text-lg mb-6 flex items-center gap-3">
+              <i class="fa-solid fa-gears text-brand-red"></i>
+              Backend Engineering
+            </h3>
+            
+            <div class="flex flex-col gap-4">
+              <!-- Skill Item -->
+              <div>
+                <div class="flex justify-between text-xs font-semibold mb-1">
+                  <span>Node.js / Express</span>
+                  <span class="text-brand-red font-mono">85%</span>
+                </div>
+                <div class="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                  <div class="h-full bg-brand-red progress-bar" data-width="85%" style="width: 0%;"></div>
+                </div>
+              </div>
+              
+              <!-- Skill Item -->
+              <div>
+                <div class="flex justify-between text-xs font-semibold mb-1">
+                  <span>REST API Design & Security</span>
+                  <span class="text-brand-red font-mono">90%</span>
+                </div>
+                <div class="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                  <div class="h-full bg-brand-red progress-bar" data-width="90%" style="width: 0%;"></div>
+                </div>
+              </div>
+              
+              <!-- Skill Item -->
+              <div>
+                <div class="flex justify-between text-xs font-semibold mb-1">
+                  <span>Relational DBs (PostgreSQL / MySQL)</span>
+                  <span class="text-brand-red font-mono">85%</span>
+                </div>
+                <div class="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                  <div class="h-full bg-brand-red progress-bar" data-width="85%" style="width: 0%;"></div>
+                </div>
+              </div>
+              
+              <!-- Skill Item -->
+              <div>
+                <div class="flex justify-between text-xs font-semibold mb-1">
+                  <span>NoSQL Databases (MongoDB)</span>
+                  <span class="text-brand-red font-mono">80%</span>
+                </div>
+                <div class="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                  <div class="h-full bg-brand-red progress-bar" data-width="80%" style="width: 0%;"></div>
+                </div>
+              </div>
+              
+              <!-- Skill Item -->
+              <div>
+                <div class="flex justify-between text-xs font-semibold mb-1">
+                  <span>Authentication (JWT, OAuth)</span>
+                  <span class="text-brand-red font-mono">85%</span>
+                </div>
+                <div class="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                  <div class="h-full bg-brand-red progress-bar" data-width="85%" style="width: 0%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Category 3: AI & Data Science -->
+          <div class="bg-brand-card border border-brand-cardBorder p-8 rounded-2xl relative overflow-hidden group hover:border-brand-red/25 transition-all duration-300">
+            <h3 class="font-display font-bold text-lg mb-6 flex items-center gap-3">
+              <i class="fa-solid fa-brain text-brand-red"></i>
+              AI & Data Science
+            </h3>
+            
+            <div class="flex flex-col gap-4">
+              <!-- Skill Item -->
+              <div>
+                <div class="flex justify-between text-xs font-semibold mb-1">
+                  <span>Machine Learning (Scikit-Learn)</span>
+                  <span class="text-brand-red font-mono">85%</span>
+                </div>
+                <div class="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                  <div class="h-full bg-brand-red progress-bar" data-width="85%" style="width: 0%;"></div>
+                </div>
+              </div>
+              
+              <!-- Skill Item -->
+              <div>
+                <div class="flex justify-between text-xs font-semibold mb-1">
+                  <span>Deep Learning (TensorFlow / PyTorch)</span>
+                  <span class="text-brand-red font-mono">75%</span>
+                </div>
+                <div class="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                  <div class="h-full bg-brand-red progress-bar" data-width="75%" style="width: 0%;"></div>
+                </div>
+              </div>
+              
+              <!-- Skill Item -->
+              <div>
+                <div class="flex justify-between text-xs font-semibold mb-1">
+                  <span>Data Analytics & Visualization</span>
+                  <span class="text-brand-red font-mono">80%</span>
+                </div>
+                <div class="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                  <div class="h-full bg-brand-red progress-bar" data-width="80%" style="width: 0%;"></div>
+                </div>
+              </div>
+              
+              <!-- Skill Item -->
+              <div>
+                <div class="flex justify-between text-xs font-semibold mb-1">
+                  <span>Computer Vision & NLP</span>
+                  <span class="text-brand-red font-mono">75%</span>
+                </div>
+                <div class="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                  <div class="h-full bg-brand-red progress-bar" data-width="75%" style="width: 0%;"></div>
+                </div>
+              </div>
+              
+              <!-- Skill Item -->
+              <div>
+                <div class="flex justify-between text-xs font-semibold mb-1">
+                  <span>Prompt Engineering & LLM APIs</span>
+                  <span class="text-brand-red font-mono">90%</span>
+                </div>
+                <div class="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                  <div class="h-full bg-brand-red progress-bar" data-width="90%" style="width: 0%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Category 4: Tools & Devops -->
+          <div class="bg-brand-card border border-brand-cardBorder p-8 rounded-2xl relative overflow-hidden group hover:border-brand-red/25 transition-all duration-300">
+            <h3 class="font-display font-bold text-lg mb-6 flex items-center gap-3">
+              <i class="fa-solid fa-screwdriver-wrench text-brand-red"></i>
+              Tools & Cloud
+            </h3>
+            
+            <div class="flex flex-wrap gap-2.5">
+              <span class="px-3.5 py-2 bg-white/5 border border-white/5 hover:border-brand-red/20 text-xs font-semibold text-white rounded-lg transition-colors font-mono flex items-center gap-1.5"><i class="fa-brands fa-git-alt text-orange-500"></i> Git</span>
+              <span class="px-3.5 py-2 bg-white/5 border border-white/5 hover:border-brand-red/20 text-xs font-semibold text-white rounded-lg transition-colors font-mono flex items-center gap-1.5"><i class="fa-brands fa-github text-white"></i> GitHub</span>
+              <span class="px-3.5 py-2 bg-white/5 border border-white/5 hover:border-brand-red/20 text-xs font-semibold text-white rounded-lg transition-colors font-mono flex items-center gap-1.5"><i class="fa-brands fa-figma text-purple-400"></i> Figma</span>
+              <span class="px-3.5 py-2 bg-white/5 border border-white/5 hover:border-brand-red/20 text-xs font-semibold text-white rounded-lg transition-colors font-mono flex items-center gap-1.5"><i class="fa-solid fa-code text-blue-400"></i> VS Code</span>
+              <span class="px-3.5 py-2 bg-white/5 border border-white/5 hover:border-brand-red/20 text-xs font-semibold text-white rounded-lg transition-colors font-mono flex items-center gap-1.5"><i class="fa-solid fa-paper-plane text-orange-400"></i> Postman</span>
+              <span class="px-3.5 py-2 bg-white/5 border border-white/5 hover:border-brand-red/20 text-xs font-semibold text-white rounded-lg transition-colors font-mono flex items-center gap-1.5"><i class="fa-solid fa-fire text-amber-500"></i> Firebase</span>
+              <span class="px-3.5 py-2 bg-white/5 border border-white/5 hover:border-brand-red/20 text-xs font-semibold text-white rounded-lg transition-colors font-mono flex items-center gap-1.5"><i class="fa-brands fa-google text-blue-500"></i> Cloud Computing</span>
+            </div>
+          </div>
+          
+          <!-- Category 5: Soft Skills / Leadership -->
+          <div class="bg-brand-card border border-brand-cardBorder p-8 rounded-2xl relative overflow-hidden group hover:border-brand-red/25 md:col-span-2 lg:col-span-2 transition-all duration-300">
+            <h3 class="font-display font-bold text-lg mb-6 flex items-center gap-3">
+              <i class="fa-solid fa-circle-nodes text-brand-red"></i>
+              Professional Competencies (Soft Skills)
+            </h3>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:border-brand-red/10 transition-colors text-center">
+                <i class="fa-solid fa-users-gear text-brand-red mb-2 block text-lg"></i>
+                <span class="text-xs font-medium text-white block">Strategic Leadership</span>
+              </div>
+              <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:border-brand-red/10 transition-colors text-center">
+                <i class="fa-solid fa-bullhorn text-brand-red mb-2 block text-lg"></i>
+                <span class="text-xs font-medium text-white block">Professional Oratory</span>
+              </div>
+              <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:border-brand-red/10 transition-colors text-center">
+                <i class="fa-solid fa-display text-brand-red mb-2 block text-lg"></i>
+                <span class="text-xs font-medium text-white block">Visual Presentation</span>
+              </div>
+              <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:border-brand-red/10 transition-colors text-center">
+                <i class="fa-solid fa-puzzle-piece text-brand-red mb-2 block text-lg"></i>
+                <span class="text-xs font-medium text-white block">Creative Problem Solving</span>
+              </div>
+              <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:border-brand-red/10 transition-colors text-center">
+                <i class="fa-solid fa-handshake text-brand-red mb-2 block text-lg"></i>
+                <span class="text-xs font-medium text-white block">Team Management</span>
+              </div>
+              <div class="p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:border-brand-red/10 transition-colors text-center">
+                <i class="fa-solid fa-comments text-brand-red mb-2 block text-lg"></i>
+                <span class="text-xs font-medium text-white block">Technical Presentation</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS SECTION (Case Study Style) -->
+    <section class="py-20 md:py-32 scroll-mt-20 border-t border-white/5 relative" id="projects">
+      <div class="absolute -left-40 top-1/3 w-[600px] h-[600px] bg-brand-red opacity-[0.015] blur-[150px] pointer-events-none"></div>
+      
+      <div class="flex flex-col gap-16">
+        <!-- Section Title -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-white/5 pb-8">
+          <div>
+            <span class="text-xs md:text-sm font-mono uppercase tracking-[0.2em] text-brand-red">04 // Creations</span>
+            <h2 class="font-display font-extrabold text-3xl md:text-6xl tracking-tight text-white uppercase mt-2">Case Study</h2>
+          </div>
+          <p class="text-brand-textMuted text-sm font-mono mt-4 md:mt-0 uppercase tracking-widest">[ SELECTED CREATIONS ]</p>
+        </div>
+        
+        <!-- Large Premium Case Study Layout (Privelgo) -->
+        <div class="bg-brand-card border border-brand-cardBorder rounded-3xl overflow-hidden relative group hover:border-brand-red/20 transition-all duration-500 shadow-2xl">
+          
+          <div class="grid grid-cols-1 lg:grid-cols-12">
+            
+            <!-- Project Image & Overlays (Left 7 Columns) -->
+            <div class="lg:col-span-7 relative h-72 sm:h-96 lg:h-full min-h-[350px] overflow-hidden bg-[#0c1825]">
+              <div class="absolute inset-0 bg-brand-red/5 z-10 opacity-30 mix-blend-color"></div>
+              
+              <!-- Dark gradient overlay inside image grid -->
+              <div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-transparent via-brand-dark/20 to-brand-dark z-10"></div>
+              
+              <!-- Zoom reveal mockup img -->
+              <img src="assets/images/privelgo_dashboard.png" alt="Privelgo Dashboard App Interface" class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-1000 origin-center">
+              
+              <!-- Technology Badge Bar -->
+              <div class="absolute bottom-6 left-6 z-20 flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-brand-dark/80 backdrop-blur-md border border-white/10 text-[10px] font-semibold tracking-wider text-white rounded font-mono uppercase">Flutter</span>
+                <span class="px-3 py-1 bg-brand-dark/80 backdrop-blur-md border border-white/10 text-[10px] font-semibold tracking-wider text-white rounded font-mono uppercase">Node.js</span>
+                <span class="px-3 py-1 bg-brand-dark/80 backdrop-blur-md border border-white/10 text-[10px] font-semibold tracking-wider text-white rounded font-mono uppercase">PostgreSQL</span>
+                <span class="px-3 py-1 bg-brand-dark/80 backdrop-blur-md border border-white/10 text-[10px] font-semibold tracking-wider text-white rounded font-mono uppercase">GPS APIs</span>
+              </div>
+            </div>
+            
+            <!-- Project Details Column (Right 5 Columns) -->
+            <div class="lg:col-span-5 p-8 sm:p-12 flex flex-col justify-between gap-8 bg-brand-card">
+              <div class="flex flex-col gap-4">
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-brand-red animate-pulse"></span>
+                  <span class="text-xs font-mono font-bold tracking-widest text-brand-red uppercase">Featured Project</span>
+                </div>
+                
+                <h3 class="font-display font-extrabold text-2xl sm:text-3xl text-white">Privelgo</h3>
+                <h4 class="text-sm font-semibold text-brand-textMuted uppercase tracking-wider mb-2">Private Bus Tracking App</h4>
+                
+                <p class="text-sm text-brand-textMuted font-light leading-relaxed">
+                  A modern, intelligent private bus tracking platform. Designed to bridge the gaps in traditional public transportation grids, featuring real-time GPS fleet tracking, AI-powered travel assistants, smart fare estimators, passenger reviews, and optimized route dispatch controls.
+                </p>
+                
+                <!-- Core Features Grid -->
+                <div class="grid grid-cols-2 gap-4 mt-6">
+                  <div class="flex items-center gap-2">
+                    <span class="w-5 h-5 rounded bg-brand-red/10 border border-brand-red/20 flex items-center justify-center text-brand-red text-[10px]">
+                      <i class="fa-solid fa-map-pin"></i>
+                    </span>
+                    <span class="text-xs text-white font-medium">Live GPS Tracking</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="w-5 h-5 rounded bg-brand-red/10 border border-brand-red/20 flex items-center justify-center text-brand-red text-[10px]">
+                      <i class="fa-solid fa-robot"></i>
+                    </span>
+                    <span class="text-xs text-white font-medium">AI Assistant</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="w-5 h-5 rounded bg-brand-red/10 border border-brand-red/20 flex items-center justify-center text-brand-red text-[10px]">
+                      <i class="fa-solid fa-calculator"></i>
+                    </span>
+                    <span class="text-xs text-white font-medium">Fare Calculator</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="w-5 h-5 rounded bg-brand-red/10 border border-brand-red/20 flex items-center justify-center text-brand-red text-[10px]">
+                      <i class="fa-solid fa-star"></i>
+                    </span>
+                    <span class="text-xs text-white font-medium">Passenger Reviews</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Call to Action Buttons -->
+              <div class="flex flex-wrap gap-4 pt-6 border-t border-white/5">
+                <a href="https://github.com/abelsam-2007/Privelgo---Private-Bus-Tracking-app/tree/main" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 h-12 bg-white text-brand-dark hover:bg-brand-red hover:text-white font-semibold rounded text-xs uppercase tracking-wider transition-all duration-300 flex-1 sm:flex-initial">
+                  <i class="fa-brands fa-github mr-2 text-sm"></i>
+                  GitHub Repository
+                </a>
+                
+                <a href="https://github.com/abelsam-2007/Privelgo---Private-Bus-Tracking-app/tree/main" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-12 h-12 border border-white/10 hover:border-brand-red hover:text-brand-red transition-all duration-300 rounded" title="View Case Study">
+                  <i class="fa-solid fa-circle-info text-sm"></i>
+                </a>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+        <!-- Future Projects Placeholder Section -->
+        <div class="bg-brand-card/50 border border-brand-cardBorder border-dashed rounded-3xl p-12 text-center relative overflow-hidden group hover:border-brand-red/35 transition-colors duration-500 py-16">
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-red/[0.01] to-transparent pointer-events-none"></div>
+          <div class="w-16 h-16 rounded-full bg-brand-red/5 border border-brand-red/20 flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
+            <i class="fa-solid fa-folder-open text-brand-red text-xl animate-pulse"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl md:text-2xl text-white mb-2 uppercase">More Projects Coming Soon</h3>
+          <p class="text-brand-textMuted text-xs max-w-sm mx-auto font-light leading-relaxed">
+            I am currently designing and building several backend microservices and deep learning analytical pipelines. Stay tuned.
+          </p>
+          <div class="mt-6 flex justify-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-brand-red/30 animate-ping"></span>
+            <span class="w-2 h-2 rounded-full bg-brand-red/60"></span>
+            <span class="w-2 h-2 rounded-full bg-brand-red"></span>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- EDUCATION & CERTIFICATIONS -->
+    <section class="py-20 md:py-32 scroll-mt-20 border-t border-white/5 relative" id="education-certifications">
+      <div class="absolute -right-40 top-1/2 w-[500px] h-[500px] bg-brand-red opacity-[0.01] blur-[150px] pointer-events-none"></div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        
+        <!-- Column 1: Education -->
+        <div class="flex flex-col gap-10">
+          <div class="border-b border-white/5 pb-6">
+            <span class="text-xs font-mono uppercase tracking-[0.2em] text-brand-red">05 // Foundation</span>
+            <h2 class="font-display font-extrabold text-3xl tracking-tight text-white uppercase mt-2">Education</h2>
+          </div>
+          
+          <div class="bg-brand-card border border-brand-cardBorder p-8 rounded-2xl relative overflow-hidden group hover:border-brand-red/20 transition-all duration-300 flex gap-6">
+            <div class="w-12 h-12 rounded-xl bg-brand-red/10 border border-brand-red/20 flex items-center justify-center flex-shrink-0 text-brand-red text-lg group-hover:scale-115 transition-transform duration-300">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            
+            <div class="flex flex-col gap-2">
+              <span class="text-xs font-mono text-brand-red font-bold uppercase tracking-widest">2024 - 2028</span>
+              <h3 class="font-display font-bold text-lg text-white">Bachelor of Technology</h3>
+              <h4 class="text-sm font-semibold text-white/90">Artificial Intelligence & Data Science</h4>
+              <p class="text-xs text-brand-textMuted font-light mt-1">Amal Jyothi College of Engineering</p>
+              <div class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-brand-red/10 border border-brand-red/20 text-[9px] font-bold text-brand-red uppercase rounded mt-3 w-fit">
+                Current Semester 3 Student
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Column 2: Certifications -->
+        <div class="flex flex-col gap-10">
+          <div class="border-b border-white/5 pb-6">
+            <span class="text-xs font-mono uppercase tracking-[0.2em] text-brand-red">06 // Credentials</span>
+            <h2 class="font-display font-extrabold text-3xl tracking-tight text-white uppercase mt-2">Certifications</h2>
+          </div>
+          
+          <div class="grid grid-cols-2 gap-4">
+            <!-- Cert Card 1 -->
+            <div class="bg-brand-card border border-brand-cardBorder p-5 rounded-xl hover:border-brand-red/25 transition-all duration-300 group">
+              <i class="fa-brands fa-google text-brand-red text-lg mb-3 block group-hover:scale-110 transition-transform duration-300"></i>
+              <h4 class="text-xs font-bold text-white mb-1">Google AI</h4>
+              <p class="text-[10px] text-brand-textMuted">Introduction to Generative AI & LLM Systems</p>
+            </div>
+            <!-- Cert Card 2 -->
+            <div class="bg-brand-card border border-brand-cardBorder p-5 rounded-xl hover:border-brand-red/25 transition-all duration-300 group">
+              <i class="fa-solid fa-chart-line text-brand-red text-lg mb-3 block group-hover:scale-110 transition-transform duration-300"></i>
+              <h4 class="text-xs font-bold text-white mb-1">Machine Learning</h4>
+              <p class="text-[10px] text-brand-textMuted">Supervised & Unsupervised Algorithms Model Mapping</p>
+            </div>
+            <!-- Cert Card 3 -->
+            <div class="bg-brand-card border border-brand-cardBorder p-5 rounded-xl hover:border-brand-red/25 transition-all duration-300 group">
+              <i class="fa-brands fa-python text-brand-red text-lg mb-3 block group-hover:scale-110 transition-transform duration-300"></i>
+              <h4 class="text-xs font-bold text-white mb-1">Python Development</h4>
+              <p class="text-[10px] text-brand-textMuted">Advanced Data Structures, Scripting, NumPy & Pandas</p>
+            </div>
+            <!-- Cert Card 4 -->
+            <div class="bg-brand-card border border-brand-cardBorder p-5 rounded-xl hover:border-brand-red/25 transition-all duration-300 group">
+              <i class="fa-solid fa-server text-brand-red text-lg mb-3 block group-hover:scale-110 transition-transform duration-300"></i>
+              <h4 class="text-xs font-bold text-white mb-1">Backend Engineering</h4>
+              <p class="text-[10px] text-brand-textMuted">REST APIs, Express Systems, and Database Schemas</p>
+            </div>
+            <!-- Cert Card 5 -->
+            <div class="bg-brand-card border border-brand-cardBorder p-5 rounded-xl hover:border-brand-red/25 transition-all duration-300 group">
+              <i class="fa-solid fa-cloud text-brand-red text-lg mb-3 block group-hover:scale-110 transition-transform duration-300"></i>
+              <h4 class="text-xs font-bold text-white mb-1">Cloud Computing</h4>
+              <p class="text-[10px] text-brand-textMuted">Cloud Deployments, Firebase, and Object Databases</p>
+            </div>
+            <!-- Cert Card 6 -->
+            <div class="bg-brand-card border border-brand-cardBorder p-5 rounded-xl hover:border-brand-red/25 transition-all duration-300 group">
+              <i class="fa-solid fa-robot text-brand-red text-lg mb-3 block group-hover:scale-110 transition-transform duration-300"></i>
+              <h4 class="text-xs font-bold text-white mb-1">Prompt Engineering</h4>
+              <p class="text-[10px] text-brand-textMuted">Cognitive Chains & API Orchestrations</p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS SECTION -->
+    <section class="py-20 md:py-32 scroll-mt-20 border-t border-white/5 relative" id="achievements">
+      <div class="absolute -left-40 top-1/2 w-[500px] h-[500px] bg-brand-red opacity-[0.015] blur-[150px] pointer-events-none"></div>
+      
+      <div class="flex flex-col gap-16">
+        <!-- Section Title -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-white/5 pb-8">
+          <div>
+            <span class="text-xs md:text-sm font-mono uppercase tracking-[0.2em] text-brand-red">07 // Excellence</span>
+            <h2 class="font-display font-extrabold text-3xl md:text-6xl tracking-tight text-white uppercase mt-2">Achievements</h2>
+          </div>
+          <p class="text-brand-textMuted text-sm font-mono mt-4 md:mt-0 uppercase tracking-widest">[ DECORATED MILESTONES ]</p>
+        </div>
+        
+        <!-- Achievement Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Award 1 -->
+          <div class="bg-brand-card border border-brand-cardBorder p-6 rounded-2xl relative overflow-hidden group hover:border-brand-red/35 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between gap-6">
+            <div class="w-12 h-12 rounded-xl bg-brand-red/10 border border-brand-red/20 flex items-center justify-center text-brand-red text-lg group-hover:scale-110 transition-transform duration-300">
+              <i class="fa-solid fa-trophy"></i>
+            </div>
+            <div>
+              <span class="text-[9px] font-mono text-brand-red tracking-wider uppercase font-bold">Academic Honors</span>
+              <h3 class="font-display font-bold text-base text-white mt-1">Director's Honours Award</h3>
+              <p class="text-xs text-brand-textMuted leading-relaxed mt-2">awarded for exemplary academic performance and score excellence during Semester 1.</p>
+            </div>
+          </div>
+          
+          <!-- Award 2 -->
+          <div class="bg-brand-card border border-brand-cardBorder p-6 rounded-2xl relative overflow-hidden group hover:border-brand-red/35 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between gap-6">
+            <div class="w-12 h-12 rounded-xl bg-brand-red/10 border border-brand-red/20 flex items-center justify-center text-brand-red text-lg group-hover:scale-110 transition-transform duration-300">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <div>
+              <span class="text-[9px] font-mono text-brand-red tracking-wider uppercase font-bold">Academic Honors</span>
+              <h3 class="font-display font-bold text-base text-white mt-1">Director's Honours Award</h3>
+              <p class="text-xs text-brand-textMuted leading-relaxed mt-2">awarded for secondary consecutive semester score excellence during Semester 2.</p>
+            </div>
+          </div>
+          
+          <!-- Award 3 -->
+          <div class="bg-brand-card border border-brand-cardBorder p-6 rounded-2xl relative overflow-hidden group hover:border-brand-red/35 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between gap-6">
+            <div class="w-12 h-12 rounded-xl bg-brand-red/10 border border-brand-red/20 flex items-center justify-center text-brand-red text-lg group-hover:scale-110 transition-transform duration-300">
+              <i class="fa-solid fa-laptop-code"></i>
+            </div>
+            <div>
+              <span class="text-[9px] font-mono text-brand-red tracking-wider uppercase font-bold">Hackathons</span>
+              <h3 class="font-display font-bold text-base text-white mt-1">Smart India Hackathon</h3>
+              <p class="text-xs text-brand-textMuted leading-relaxed mt-2">shortlisted candidate for the national SIH 2025 event, recognized for creative software solutions.</p>
+            </div>
+          </div>
+          
+          <!-- Award 4 -->
+          <div class="bg-brand-card border border-brand-cardBorder p-6 rounded-2xl relative overflow-hidden group hover:border-brand-red/35 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between gap-6">
+            <div class="w-12 h-12 rounded-xl bg-brand-red/10 border border-brand-red/20 flex items-center justify-center text-brand-red text-lg group-hover:scale-110 transition-transform duration-300">
+              <i class="fa-solid fa-briefcase"></i>
+            </div>
+            <div>
+              <span class="text-[9px] font-mono text-brand-red tracking-wider uppercase font-bold">Professional Selection</span>
+              <h3 class="font-display font-bold text-base text-white mt-1">Backend AI Intern</h3>
+              <p class="text-xs text-brand-textMuted leading-relaxed mt-2">hired as a backend engineering and cognitive pipeline intern at startup FlyRank AI.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK PHILOSOPHY SECTION -->
+    <section class="py-20 md:py-32 scroll-mt-20 border-t border-white/5 relative" id="philosophy">
+      <div class="absolute -right-40 top-1/2 w-[500px] h-[500px] bg-brand-red opacity-[0.01] blur-[150px] pointer-events-none"></div>
+      
+      <div class="flex flex-col gap-16">
+        <!-- Section Title -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-white/5 pb-8">
+          <div>
+            <span class="text-xs md:text-sm font-mono uppercase tracking-[0.2em] text-brand-red">08 // Execution</span>
+            <h2 class="font-display font-extrabold text-3xl md:text-6xl tracking-tight text-white uppercase mt-2">Work Philosophy</h2>
+          </div>
+          <p class="text-brand-textMuted text-sm font-mono mt-4 md:mt-0 uppercase tracking-widest">[ HOW I THINK ]</p>
+        </div>
+        
+        <!-- Workflow Timeline Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 relative">
+          <!-- Step 1 -->
+          <div class="bg-brand-card border border-brand-cardBorder p-8 rounded-2xl flex flex-col justify-between h-64 hover:border-brand-red/30 transition-all duration-300 group">
+            <span class="font-display font-extrabold text-5xl text-white/5 group-hover:text-brand-red/20 transition-colors leading-none font-mono">01</span>
+            <div>
+              <h3 class="text-base font-bold text-white mb-2">Research</h3>
+              <p class="text-xs text-brand-textMuted leading-relaxed font-light">Deeply investigating problem architectures and assessing existing user friction grids.</p>
+            </div>
+          </div>
+          <!-- Step 2 -->
+          <div class="bg-brand-card border border-brand-cardBorder p-8 rounded-2xl flex flex-col justify-between h-64 hover:border-brand-red/30 transition-all duration-300 group">
+            <span class="font-display font-extrabold text-5xl text-white/5 group-hover:text-brand-red/20 transition-colors leading-none font-mono">02</span>
+            <div>
+              <h3 class="text-base font-bold text-white mb-2">Think</h3>
+              <p class="text-xs text-brand-textMuted leading-relaxed font-light">Formulating structural specifications and designing clean database map schedules.</p>
+            </div>
+          </div>
+          <!-- Step 3 -->
+          <div class="bg-brand-card border border-brand-cardBorder p-8 rounded-2xl flex flex-col justify-between h-64 hover:border-brand-red/30 transition-all duration-300 group">
+            <span class="font-display font-extrabold text-5xl text-white/5 group-hover:text-brand-red/20 transition-colors leading-none font-mono">03</span>
+            <div>
+              <h3 class="text-base font-bold text-white mb-2">Design</h3>
+              <p class="text-xs text-brand-textMuted leading-relaxed font-light">Drafting user-centric API channels and optimizing interactive mock layout views.</p>
+            </div>
+          </div>
+          <!-- Step 4 -->
+          <div class="bg-brand-card border border-brand-cardBorder p-8 rounded-2xl flex flex-col justify-between h-64 hover:border-brand-red/30 transition-all duration-300 group">
+            <span class="font-display font-extrabold text-5xl text-white/5 group-hover:text-brand-red/20 transition-colors leading-none font-mono">04</span>
+            <div>
+              <h3 class="text-base font-bold text-white mb-2">Develop</h3>
+              <p class="text-xs text-brand-textMuted leading-relaxed font-light">Engineering scalable endpoints and coding cognitive routines with clean structures.</p>
+            </div>
+          </div>
+          <!-- Step 5 -->
+          <div class="bg-brand-card border border-brand-cardBorder p-8 rounded-2xl flex flex-col justify-between h-64 hover:border-brand-red/30 transition-all duration-300 group">
+            <span class="font-display font-extrabold text-5xl text-white/5 group-hover:text-brand-red/20 transition-colors leading-none font-mono">05</span>
+            <div>
+              <h3 class="text-base font-bold text-white mb-2">Optimize</h3>
+              <p class="text-xs text-brand-textMuted leading-relaxed font-light">Debugging query bottlenecks, reducing code weight, and styling responsive views.</p>
+            </div>
+          </div>
+          <!-- Step 6 -->
+          <div class="bg-brand-card border border-brand-cardBorder p-8 rounded-2xl flex flex-col justify-between h-64 hover:border-brand-red/30 transition-all duration-300 group">
+            <span class="font-display font-extrabold text-5xl text-white/5 group-hover:text-brand-red/20 transition-colors leading-none font-mono">06</span>
+            <div>
+              <h3 class="text-base font-bold text-white mb-2">Launch</h3>
+              <p class="text-xs text-brand-textMuted leading-relaxed font-light">Deploying systems, gathering analytical review charts, and ensuring real value delivery.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="py-20 md:py-32 scroll-mt-20 border-t border-white/5 relative" id="testimonials">
+      <div class="absolute -left-40 top-1/2 w-[500px] h-[500px] bg-brand-red opacity-[0.015] blur-[150px] pointer-events-none"></div>
+      
+      <div class="flex flex-col gap-16">
+        <!-- Section Title -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-white/5 pb-8">
+          <div>
+            <span class="text-xs md:text-sm font-mono uppercase tracking-[0.2em] text-brand-red">09 // Endorsements</span>
+            <h2 class="font-display font-extrabold text-3xl md:text-6xl tracking-tight text-white uppercase mt-2">Testimonials</h2>
+          </div>
+          <p class="text-brand-textMuted text-sm font-mono mt-4 md:mt-0 uppercase tracking-widest">[ WHAT CLIENTS SAY ]</p>
+        </div>
+        
+        <!-- Testimonials Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Testimonial 1 -->
+          <div class="bg-brand-card border border-brand-cardBorder p-8 rounded-2xl relative overflow-hidden group hover:border-brand-red/20 transition-all duration-300 flex flex-col justify-between gap-6">
+            <i class="fa-solid fa-quote-right text-white/5 absolute right-6 top-6 text-6xl pointer-events-none group-hover:text-brand-red/10 transition-colors"></i>
+            <p class="text-white font-light text-sm italic leading-relaxed relative z-10">
+              "Abel joined FlyRank AI as a backend intern and immediately demonstrated outstanding technical maturity. He took complete ownership of our database optimizations, drastically reducing REST endpoint response times. His ability to synthesize complex mathematical frameworks into production-ready API pipelines is impressive."
+            </p>
+            <div class="flex items-center gap-4 relative z-10 border-t border-white/5 pt-4">
+              <div class="w-10 h-10 rounded-full bg-brand-red/10 border border-brand-red/25 flex items-center justify-center font-display font-bold text-xs text-brand-red">
+                FR
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white">Engineering Dispatcher</h4>
+                <p class="text-[10px] text-brand-textMuted uppercase font-mono tracking-wider">FlyRank AI Team Leader</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonial 2 -->
+          <div class="bg-brand-card border border-brand-cardBorder p-8 rounded-2xl relative overflow-hidden group hover:border-brand-red/20 transition-all duration-300 flex flex-col justify-between gap-6">
+            <i class="fa-solid fa-quote-right text-white/5 absolute right-6 top-6 text-6xl pointer-events-none group-hover:text-brand-red/10 transition-colors"></i>
+            <p class="text-white font-light text-sm italic leading-relaxed relative z-10">
+              "Working with Abel during our hackathon sprints has been a stellar experience. He handles both strategic system designs and immediate debugging demands under intense pressure without losing focus. He is not just an exceptionally talented programmer but a highly compelling public orator and team guide."
+            </p>
+            <div class="flex items-center gap-4 relative z-10 border-t border-white/5 pt-4">
+              <div class="w-10 h-10 rounded-full bg-brand-red/10 border border-brand-red/25 flex items-center justify-center font-display font-bold text-xs text-brand-red">
+                SI
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white">Hackathon Partner</h4>
+                <p class="text-[10px] text-brand-textMuted uppercase font-mono tracking-wider">Smart India Hackathon Cohort</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="py-20 md:py-32 scroll-mt-20 border-t border-white/5 relative" id="contact">
+      
+      <!-- Big Center Glow behind footer trigger -->
+      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-brand-red/10 rounded-full blur-[100px] pointer-events-none"></div>
+      
+      <div class="max-w-4xl mx-auto text-center flex flex-col items-center gap-8 relative z-10">
+        
+        <span class="text-xs font-mono uppercase tracking-[0.2em] text-brand-red">10 // Partnership</span>
+        <h2 class="font-display font-extrabold text-4xl md:text-7xl leading-none text-white tracking-tight uppercase">
+          Let's Build Something<br>
+          <span class="text-transparent stroke-text">Amazing Together.</span>
+        </h2>
+        
+        <p class="text-brand-textMuted text-sm md:text-base max-w-xl font-light leading-relaxed">
+          I'm always open to internships, research opportunities, collaborations, AI projects, hackathons, open-source contributions, and innovative software development requests.
+        </p>
+        
+        <!-- Large Glowing CTA Button -->
+        <a href="mailto:abelsamphilip@gmail.com" class="inline-flex items-center justify-center px-10 h-16 bg-brand-red hover:bg-brand-red-hover text-white font-semibold rounded text-sm uppercase tracking-wider transition-all duration-300 shadow-[0_0_30px_rgba(229,9,20,0.4)] hover:shadow-[0_0_50px_rgba(229,9,20,0.7)] hover:scale-[1.02] mt-4 magnetic-button">
+          Let's Connect
+          <i class="fa-solid fa-envelope ml-2 text-sm"></i>
+        </a>
+        
+        <!-- Contact Cards Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full mt-16 text-left">
+          <!-- Card: Email -->
+          <a href="mailto:abelsamphilip@gmail.com" class="bg-brand-card/60 backdrop-blur-md border border-brand-cardBorder hover:border-brand-red/30 p-5 rounded-xl flex flex-col gap-3 group transition-colors">
+            <span class="w-8 h-8 rounded bg-white/5 flex items-center justify-center text-brand-red group-hover:scale-105 transition-transform"><i class="fa-solid fa-envelope text-sm"></i></span>
+            <div>
+              <p class="text-[9px] font-mono text-brand-textMuted uppercase tracking-widest">Email Direct</p>
+              <p class="text-xs font-bold text-white mt-0.5 truncate">abelsamphilip@gmail.com</p>
+            </div>
+          </a>
+          <!-- Card: GitHub -->
+          <a href="https://github.com/abelsam-2007" target="_blank" rel="noopener" class="bg-brand-card/60 backdrop-blur-md border border-brand-cardBorder hover:border-brand-red/30 p-5 rounded-xl flex flex-col gap-3 group transition-colors">
+            <span class="w-8 h-8 rounded bg-white/5 flex items-center justify-center text-brand-red group-hover:scale-105 transition-transform"><i class="fa-brands fa-github text-sm"></i></span>
+            <div>
+              <p class="text-[9px] font-mono text-brand-textMuted uppercase tracking-widest">GitHub Repository</p>
+              <p class="text-xs font-bold text-white mt-0.5">github.com/abelsam-2007</p>
+            </div>
+          </a>
+          <!-- Card: LinkedIn -->
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="bg-brand-card/60 backdrop-blur-md border border-brand-cardBorder hover:border-brand-red/30 p-5 rounded-xl flex flex-col gap-3 group transition-colors">
+            <span class="w-8 h-8 rounded bg-white/5 flex items-center justify-center text-brand-red group-hover:scale-105 transition-transform"><i class="fa-brands fa-linkedin-in text-sm"></i></span>
+            <div>
+              <p class="text-[9px] font-mono text-brand-textMuted uppercase tracking-widest">LinkedIn Connect</p>
+              <p class="text-xs font-bold text-white mt-0.5">linkedin.com/in/abelsam</p>
+            </div>
+          </a>
+          <!-- Card: Location -->
+          <div class="bg-brand-card/60 backdrop-blur-md border border-brand-cardBorder hover:border-brand-red/30 p-5 rounded-xl flex flex-col gap-3 group transition-colors">
+            <span class="w-8 h-8 rounded bg-white/5 flex items-center justify-center text-brand-red group-hover:scale-105 transition-transform"><i class="fa-solid fa-location-dot text-sm"></i></span>
+            <div>
+              <p class="text-[9px] font-mono text-brand-textMuted uppercase tracking-widest">Location</p>
+              <p class="text-xs font-bold text-white mt-0.5">Kottayam, Kerala, India</p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+  </main>
+
+  <!-- LUXURY FOOTER -->
+  <footer class="border-t border-white/5 bg-brand-darker py-16 mt-20 relative z-10 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Big Typography Header inside footer -->
+      <div class="text-center pointer-events-none select-none my-8 opacity-[0.03]">
+        <h2 class="font-display font-extrabold text-[8vw] leading-none text-white tracking-tighter uppercase">ABEL SAM PHILIP</h2>
+      </div>
+      
+      <div class="flex flex-col md:flex-row items-center justify-between gap-8 pt-8 border-t border-white/5 text-xs text-brand-textMuted">
+        <div class="flex flex-col gap-1 items-center md:items-start">
+          <p class="font-bold text-white text-sm">ABEL SAM PHILIP</p>
+          <p class="font-mono text-[9px] uppercase tracking-widest text-brand-red">AI • DATA SCIENCE • BACKEND</p>
+        </div>
+        
+        <p class="text-center">&copy; 2026 Abel Sam Philip. All Rights Reserved. Engineered with precision.</p>
+        
+        <div class="flex gap-6">
+          <a href="#" class="hover:text-white transition-colors">Back to Top</a>
+          <a href="https://github.com/abelsam-2007/Privelgo---Private-Bus-Tracking-app/tree/main" class="hover:text-white transition-colors">Featured App</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Custom Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
